@@ -26,5 +26,5 @@
   <li>Home Screen: displays a list of features for logged-in users. (Feature to be improved in the future).</li>
 </ul>
 
-<h3>Developer</h3>
+<h2>Developer</h2>
 <p>Igor Machado Cruz Guimaraes Oliveira</p>
