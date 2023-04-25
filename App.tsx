@@ -6,7 +6,12 @@ import SignupScreen from './screens/SignupScreen';
 import { Colors } from './constants/styles';
 import { StatusBar } from 'expo-status-bar';
 
-const Stack = createNativeStackNavigator();
+type UnauthenticatedStackParams = {
+  Login: undefined;
+  Signup: undefined;
+};
+
+const Stack = createNativeStackNavigator<UnauthenticatedStackParams>();
 
 //Screens for Unauthenticated Users
 function UnauthenticatedStack() {
@@ -22,7 +27,7 @@ function UnauthenticatedStack() {
   );
 };
 
-function Navigation() {
+function Navigation(): JSX.Element {
   return (
     <NavigationContainer>
       <UnauthenticatedStack />
@@ -30,7 +35,7 @@ function Navigation() {
   );
 }
 
-export default function App() {
+export default function App(): JSX.Element {
   return (
     <>
       <StatusBar style="light" />

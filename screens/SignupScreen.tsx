@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 type SignupScreenProps = {};
 
-const SignupScreen = (props: SignupScreenProps) => {
+function SignupScreen (props: SignupScreenProps){
   return (
     <View>
       <Text>Signup Screen</Text>
