@@ -22,7 +22,14 @@ function UnauthenticatedStack() {
           contentStyle : {backgroundColor : Colors.background }
         }}>
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Signup" component={SignupScreen} />
+        <Stack.Screen name="Signup" component={SignupScreen} options={{
+          headerTitle: "",
+          headerStyle: {
+            backgroundColor: Colors.background,
+          },
+          headerTintColor: Colors.primary,
+          headerShown : true
+        }} />
       </Stack.Navigator>
   );
 };

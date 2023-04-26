@@ -5,7 +5,7 @@ import { styles } from './style';
 type FooterProps = {
     children : string;
     link : string;
-    onPress : any;
+    onPress : () => void;
 }
 
 function Footer ({children, link, onPress} : FooterProps) : JSX.Element {
