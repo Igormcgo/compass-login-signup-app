@@ -6,7 +6,7 @@ import SignupScreen from './screens/SignupScreen';
 import { Colors } from './constants/styles';
 import { StatusBar } from 'expo-status-bar';
 
-type UnauthenticatedStackParams = {
+export type UnauthenticatedStackParams = {
   Login: undefined;
   Signup: undefined;
 };
@@ -23,7 +23,7 @@ function UnauthenticatedStack() {
         }}>
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Signup" component={SignupScreen} options={{
-          headerTitle: "",
+          headerTitle: '',
           headerStyle: {
             backgroundColor: Colors.background,
           },

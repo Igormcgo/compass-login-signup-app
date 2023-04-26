@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     textContainer: {
         borderTopWidth : 0.5,
         borderColor : Colors.primary,
-        marginTop: 165,
         alignItems : 'center',
         flexDirection: 'row',
         justifyContent : 'center'
