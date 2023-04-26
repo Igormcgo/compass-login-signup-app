@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Colors } from '../constants/styles';
 import  Input  from '../components/Input';
+import Button from '../components/Button';
+import Footer from '../components/Footer';
 
 type LoginScreenProps = {};
 
@@ -14,6 +16,8 @@ function LoginScreen () : JSX.Element {
       <Text style= {styles.welcomeText}>WELCOME</Text>
       <Input myImage={mailIcon} placeholder='Your email' />
       <Input myImage={lockIcon} placeholder='Your password'/>
+      <Button onPress={() => {}}>LOGIN</Button>
+      <Footer link='Sign Up' onPress={() => {}}>Don't have an account?</Footer>
     </View>
   );
 };
@@ -27,6 +31,6 @@ const styles = StyleSheet.create({
         textAlign : 'center',
         fontWeight : 'bold', 
         marginTop : 150,
-        marginBottom: 180
+        marginBottom: 170
     }
 });
