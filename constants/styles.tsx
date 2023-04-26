@@ -3,5 +3,5 @@ export const Colors = {
     primary : '#D78F3C',
     warning : '#FF4B4B',
     input : '#656262',
-    inputPlaceholder: 'A8A8A8'
+    inputPlaceholder: '#A8A8A8'
 }

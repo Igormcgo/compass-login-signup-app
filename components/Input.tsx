@@ -12,7 +12,7 @@ function Input({ icon, placeholder }: InputProps): JSX.Element {
     return(
         <View style={styles.inputContainer}>
             <Ionicons name={icon} color={Colors.primary} size={25} style={styles.icon}/>
-            <TextInput style={styles.input} placeholder={placeholder} placeholderTextColor="#8D8D8D" />
+            <TextInput style={styles.input} placeholder={placeholder} placeholderTextColor={Colors.inputPlaceholder} />
         </View>
     );
 };
@@ -23,12 +23,13 @@ const styles = StyleSheet.create({
     inputContainer: {
       flexDirection: 'row',
       alignItems: 'center',
-      backgroundColor: '#F4F4F4',
-      borderRadius: 10,
+      backgroundColor: Colors.input,
+      borderRadius: 30,
       marginHorizontal: 20,
       marginVertical: 10,
       paddingHorizontal: 10,
       height: 50,
+      
     },
     icon: {
       marginRight: 10,
