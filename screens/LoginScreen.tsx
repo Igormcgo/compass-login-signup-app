@@ -5,12 +5,15 @@ import  Input  from '../components/Input';
 
 type LoginScreenProps = {};
 
+const mailIcon = require('../assets/icons/mail.png');
+const lockIcon = require('../assets/icons/lock.png');
+
 function LoginScreen () : JSX.Element {
   return (
     <View>
       <Text style= {styles.welcomeText}>WELCOME</Text>
-      <Input icon= {"mail"} placeholder='Your email' />
-      <Input icon= {"lock-closed"} placeholder='Your password'/>
+      <Input myImage={mailIcon} placeholder='Your email' />
+      <Input myImage={lockIcon} placeholder='Your password'/>
     </View>
   );
 };

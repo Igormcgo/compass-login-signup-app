@@ -1,17 +1,16 @@
 import React from 'react';
-import { View, TextInput, StyleSheet, Image } from 'react-native';
+import { View, TextInput, StyleSheet, Image, ImageSourcePropType } from 'react-native';
 import { Colors } from '../constants/styles';
-import Ionicons from '@expo/vector-icons/Ionicons';
 
 type InputProps = {
-    icon: any;
     placeholder: string;
+    myImage : ImageSourcePropType;
 }
 
-function Input({ icon, placeholder }: InputProps): JSX.Element {
+function Input({ placeholder, myImage }: InputProps): JSX.Element {
     return(
         <View style={styles.inputContainer}>
-            <Ionicons name={icon} color={Colors.primary} size={25} style={styles.icon}/>
+            <Image source={myImage} style={styles.icon}/>
             <TextInput style={styles.input} placeholder={placeholder} placeholderTextColor={Colors.inputPlaceholder} />
         </View>
     );
@@ -29,10 +28,12 @@ const styles = StyleSheet.create({
       marginVertical: 10,
       paddingHorizontal: 10,
       height: 50,
-      
     },
     icon: {
       marginRight: 10,
+      width: 30,
+      height: 30,
+      resizeMode :'contain'
     },
     input: {
       flex: 1,
