@@ -14,23 +14,44 @@ const lockIcon:ImageSourcePropType = require('../assets/icons/lock.png');
 
 function LoginScreen ({navigation} : LoginScreenProps) : JSX.Element {
   //type
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [emailValid, setEmailValid] = useState(true);
+  const [passwordValid, setPasswordValid] = useState(true);
+  const [buttonPressed, setButtonPressed] = useState(false);
 
+  function handleEmailChange(text: string): void {
+    if (buttonPressed) {
+      if (text.trim() === '') {
+        setEmailValid(false);
+      } else {
+        setEmailValid(true);
+      }
+    }
+  }
+
+  function handlePasswordChange(text: string): void {
+    if (buttonPressed){  
+      if (text.trim() === '') {
+        setPasswordValid(false);
+      } else {
+        setPasswordValid(true);
+      }
+    }
+  }
 
   function signupPressHandler(): void {
     navigation.navigate('Signup');
   }
 
-  function validateInputs(): boolean {
-    return email.trim() !== '' && password.trim() !== '';
+  function validateInputs(): boolean {    
+    setButtonPressed(true);
+    return emailValid && passwordValid;
   }
 
   return (
     <View>
       <Text style= {styles.welcomeText}>WELCOME</Text>
-      <Input myImage={mailIcon} placeholder='Your email' />
-      <Input myImage={lockIcon} placeholder='Your password'/>
+      <Input isPressed={buttonPressed} onChangeText={handleEmailChange} isValid={emailValid} invalidMessage='Please enter a valid email adress' myImage={mailIcon} placeholder='Your email' />
+      <Input isPressed={buttonPressed} onChangeText={handlePasswordChange} isValid={passwordValid} invalidMessage='Please enter a valid password' myImage={lockIcon} placeholder='Your password'/>
       <Button onPress={() => {
               if (validateInputs()) {
                 navigation.navigate('Home');}}}
@@ -49,6 +70,6 @@ const styles = StyleSheet.create({
         textAlign : 'center',
         fontWeight : 'bold', 
         marginTop : 183,
-        marginBottom: 150
+        marginBottom: 110
     }
 });

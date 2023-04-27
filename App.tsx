@@ -23,7 +23,7 @@ function UnauthenticatedStack() {
         }}>
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Signup" component={SignupScreen} options={{
-          headerTitle: '',
+          headerTitle: "",
           headerStyle: {
             backgroundColor: Colors.background,
           },

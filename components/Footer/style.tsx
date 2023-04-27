@@ -3,6 +3,7 @@ import { Colors } from "../../constants/styles";
 
 export const styles = StyleSheet.create({
     textContainer: {
+        marginTop : 160,
         borderTopWidth : 0.5,
         borderColor : Colors.primary,
         alignItems : 'center',

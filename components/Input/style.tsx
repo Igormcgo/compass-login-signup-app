@@ -24,4 +24,16 @@ export const styles = StyleSheet.create({
       fontSize: 16,
       marginLeft: 5,
     },
+    invalidInput: {
+      borderWidth: 1,
+      borderColor: 'red',
+    },
+    invalidContainer: {
+      marginVertical : 2,
+      marginHorizontal : 35,
+    },
+    invalidText : {
+      color : 'red',
+      fontSize : 13
+    }
 });
