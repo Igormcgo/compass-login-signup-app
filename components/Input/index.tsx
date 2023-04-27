@@ -25,7 +25,7 @@ function Input({ placeholder, myImage, isValid, invalidMessage, onChangeText, is
         <View>
             <View style={[styles.inputContainer, !isValid && isPressed && styles.invalidInput]}>
                 <Image source={myImage} style={styles.icon}/>
-                <TextInput onChangeText={onChangeText} style={styles.input} placeholder={placeholder} placeholderTextColor={Colors.inputPlaceholder} />
+                <TextInput secureTextEntry={placeholder === 'Your password' ? true : false} onChangeText={onChangeText} style={styles.input} placeholder={placeholder} placeholderTextColor={Colors.inputPlaceholder} />
             </View>
             <View style={styles.invalidContainer}>
             {invalid && 
