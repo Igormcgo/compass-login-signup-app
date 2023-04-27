@@ -4,7 +4,7 @@ import { styles } from './style';
 
 type ButtonProps = {
     children : any;
-    onPress : any;
+    onPress : () => void;
 }
 
 function Button ({children, onPress} : ButtonProps) : JSX.Element {
