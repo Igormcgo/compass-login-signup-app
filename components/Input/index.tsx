@@ -13,7 +13,7 @@ type InputProps = {
 }
 
 function Input({ placeholder, myImage, isValid, invalidMessage, onChangeText, isPressed}: InputProps): JSX.Element {
-    const [invalid, setInvalid] = useState(false);
+    const [invalid, setInvalid] = useState<boolean>(false);
     
     useEffect (() => {
         if(isPressed){
@@ -23,7 +23,7 @@ function Input({ placeholder, myImage, isValid, invalidMessage, onChangeText, is
     
     return(
         <View>
-            <View style={[styles.inputContainer, !isValid && styles.invalidInput]}>
+            <View style={[styles.inputContainer, !isValid && isPressed && styles.invalidInput]}>
                 <Image source={myImage} style={styles.icon}/>
                 <TextInput onChangeText={onChangeText} style={styles.input} placeholder={placeholder} placeholderTextColor={Colors.inputPlaceholder} />
             </View>
