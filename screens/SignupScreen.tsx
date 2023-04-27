@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, ImageSourcePropType } from 'react-native';
+import { View, Text, StyleSheet, ImageSourcePropType, ActivityIndicator } from 'react-native';
 import Checkbox from 'expo-checkbox';
 import { Colors } from '../constants/styles';
 import  Input  from '../components/Input';
@@ -15,40 +15,43 @@ const lockIcon:ImageSourcePropType = require('../assets/icons/lock.png');
 const userIcon:ImageSourcePropType = require('../assets/icons/user.png');
 
 function SignupScreen ({navigation} : SignupScreenProps) : JSX.Element {
-  const [toggleCheckBox, setToggleCheckBox] = useState(false);
-  const [emailValid, setEmailValid] = useState(false);
-  const [passwordValid, setPasswordValid] = useState(false);
-  const [usernameValid, setUsernameValid] = useState (false);
-  const [buttonPressed, setButtonPressed] = useState(false);
+  const [toggleCheckBox, setToggleCheckBox] = useState<boolean>(false);
+  const [emailValid, setEmailValid] = useState<boolean>(false);
+  const [passwordValid, setPasswordValid] = useState<boolean>(false);
+  const [usernameValid, setUsernameValid] = useState<boolean>(false);
+  const [buttonPressed, setButtonPressed] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      navigation.navigate('Home');
+    }, 1000);
+  }
 
   function handleEmailChange(text: string): void {
-    if (buttonPressed) {
-      if (text.trim() === '') {
-        setEmailValid(false);
-      } else {
-        setEmailValid(true);
-      }
+    if (text.trim() === '') {
+      setEmailValid(false);
+    } else {
+      setEmailValid(true);
     }
   }
 
   function handlePasswordChange(text: string): void {
-    if (buttonPressed){  
-      if (text.trim() === '') {
-        setPasswordValid(false);
-      } else {
-        setPasswordValid(true);
-      }
+    if (text.trim() === '') {
+      setPasswordValid(false);
+    } else {
+      setPasswordValid(true);
     }
   }
 
-  function handleUsernameChange(text: string): void {
-    if (buttonPressed){  
+  function handleUsernameChange(text: string): void {  
       if (text.trim() === '') {
         setUsernameValid(false);
       } else {
         setUsernameValid(true);
       }
-    }
   }
 
   function validateInputs(): boolean {    
@@ -75,9 +78,11 @@ function SignupScreen ({navigation} : SignupScreenProps) : JSX.Element {
         />
         <Text style={styles.label}>Agree To <Text style={{textDecorationLine : 'underline'}}>Terms And Conditions</Text></Text>
       </View>
+      {!toggleCheckBox && buttonPressed && <Text style={styles.checkboxErrorMessage}>Please accept the terms</Text>}
       <Button onPress={() => {
               if (validateInputs()) {
-                navigation.navigate('Home');}}}>CREATE ACCOUNT</Button>
+                handleClick()}}}
+      >{isLoading ? <ActivityIndicator size={'large'} color='white'/> : <Text style={styles.buttonText}>CREATE ACCOUNT</Text>}</Button>
       <Footer link='Sign in' onPress={signinPressHandler}>Already have an account?</Footer>
     </View>
   );
@@ -110,4 +115,14 @@ const styles = StyleSheet.create({
       fontSize: 14,
       color: 'white',
     },
+    buttonText : {
+      textAlign : 'center',
+      color : 'white',
+      alignSelf : 'center',
+    },
+    checkboxErrorMessage : {
+      color : 'red',
+      fontSize : 14,
+      marginHorizontal : 35
+    }
 });

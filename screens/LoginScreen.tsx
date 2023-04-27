@@ -23,10 +23,9 @@ function LoginScreen ({navigation} : LoginScreenProps) : JSX.Element {
     setTimeout(() => {
       setIsLoading(false);
       navigation.navigate('Home');
-    }, 3000);
+    }, 1000);
   }
   
-
   function handleEmailChange(text: string): void {
     if (text.trim() === '') {
       setEmailValid(false);

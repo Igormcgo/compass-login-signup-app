@@ -23,6 +23,7 @@ export const styles = StyleSheet.create({
       flex: 1,
       fontSize: 16,
       marginLeft: 5,
+      color : Colors.inputPlaceholder
     },
     invalidInput: {
       borderWidth: 1,
