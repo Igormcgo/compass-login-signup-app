@@ -3,18 +3,20 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
+import HomeScreen from './screens/HomeScreen'
 import { Colors } from './constants/styles';
 import { StatusBar } from 'expo-status-bar';
 
-export type UnauthenticatedStackParams = {
+export type StackScreenParams = {
   Login: undefined;
   Signup: undefined;
+  Home : undefined;
 };
 
-const Stack = createNativeStackNavigator<UnauthenticatedStackParams>();
+const Stack = createNativeStackNavigator<StackScreenParams>();
 
 //Screens for Unauthenticated Users
-function UnauthenticatedStack() {
+function StackScreen() {
   return (
       <Stack.Navigator
         screenOptions={{
@@ -30,6 +32,7 @@ function UnauthenticatedStack() {
           headerTintColor: Colors.primary,
           headerShown : true
         }} />
+        <Stack.Screen name="Home" component={HomeScreen}/>
       </Stack.Navigator>
   );
 };
@@ -37,7 +40,7 @@ function UnauthenticatedStack() {
 function Navigation(): JSX.Element {
   return (
     <NavigationContainer>
-      <UnauthenticatedStack />
+      <StackScreen />
     </NavigationContainer>
   );
 }

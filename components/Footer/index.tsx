@@ -10,12 +10,14 @@ type FooterProps = {
 
 function Footer ({children, link, onPress} : FooterProps) : JSX.Element {
     return(
-        <View style={styles.textContainer}>
-            <Text style={styles.text}>{children}</Text>
-            <Pressable style={({ pressed }) =>  pressed && styles.pressed}
-                       onPress={onPress}>
-                <Text style={styles.textLink}>{link}</Text>
-            </Pressable>
+        <View style={styles.container}>
+            <View style={styles.textContainer}>
+                <Text style={styles.text}>{children}</Text>
+                <Pressable style={({ pressed }) =>  pressed && styles.pressed}
+                           onPress={onPress}>
+                    <Text style={styles.textLink}>{link}</Text>
+                </Pressable>
+            </View>
         </View>
     );
 }

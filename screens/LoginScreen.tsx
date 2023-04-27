@@ -4,18 +4,18 @@ import { Colors } from '../constants/styles';
 import  Input  from '../components/Input';
 import Button from '../components/Button';
 import Footer from '../components/Footer';
-import { UnauthenticatedStackParams } from '../App';
+import { StackScreenParams } from '../App';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-type LoginScreenProps = NativeStackScreenProps<UnauthenticatedStackParams, 'Login'>;
+type LoginScreenProps = NativeStackScreenProps<StackScreenParams, 'Login'>;
 
 const mailIcon:ImageSourcePropType = require('../assets/icons/mail.png');
 const lockIcon:ImageSourcePropType = require('../assets/icons/lock.png');
 
 function LoginScreen ({navigation} : LoginScreenProps) : JSX.Element {
   //type
-  const [emailValid, setEmailValid] = useState(true);
-  const [passwordValid, setPasswordValid] = useState(true);
+  const [emailValid, setEmailValid] = useState(false);
+  const [passwordValid, setPasswordValid] = useState(false);
   const [buttonPressed, setButtonPressed] = useState(false);
 
   function handleEmailChange(text: string): void {
@@ -48,7 +48,7 @@ function LoginScreen ({navigation} : LoginScreenProps) : JSX.Element {
   }
 
   return (
-    <View>
+    <View style = {styles.container}>
       <Text style= {styles.welcomeText}>WELCOME</Text>
       <Input isPressed={buttonPressed} onChangeText={handleEmailChange} isValid={emailValid} invalidMessage='Please enter a valid email adress' myImage={mailIcon} placeholder='Your email' />
       <Input isPressed={buttonPressed} onChangeText={handlePasswordChange} isValid={passwordValid} invalidMessage='Please enter a valid password' myImage={lockIcon} placeholder='Your password'/>
@@ -64,12 +64,15 @@ function LoginScreen ({navigation} : LoginScreenProps) : JSX.Element {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
-    welcomeText : {
-        color : Colors.primary,
-        fontSize: 30,
-        textAlign : 'center',
-        fontWeight : 'bold', 
-        marginTop : 183,
-        marginBottom: 110
-    }
+  container : {
+    flex : 1
+  },  
+  welcomeText : {
+    color : Colors.primary,
+    fontSize: 30,
+    textAlign : 'center',
+    fontWeight : 'bold', 
+    marginTop : 170,
+    marginBottom: 110
+  }
 });

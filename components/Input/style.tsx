@@ -29,7 +29,6 @@ export const styles = StyleSheet.create({
       borderColor: 'red',
     },
     invalidContainer: {
-      marginVertical : 2,
       marginHorizontal : 35,
     },
     invalidText : {
