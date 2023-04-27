@@ -16,9 +16,9 @@ const userIcon:ImageSourcePropType = require('../assets/icons/user.png');
 
 function SignupScreen ({navigation} : SignupScreenProps) : JSX.Element {
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
-  const [emailValid, setEmailValid] = useState(true);
-  const [passwordValid, setPasswordValid] = useState(true);
-  const [usernameValid, setUsernameValid] = useState (true);
+  const [emailValid, setEmailValid] = useState(false);
+  const [passwordValid, setPasswordValid] = useState(false);
+  const [usernameValid, setUsernameValid] = useState (false);
   const [buttonPressed, setButtonPressed] = useState(false);
 
   function handleEmailChange(text: string): void {
@@ -53,7 +53,7 @@ function SignupScreen ({navigation} : SignupScreenProps) : JSX.Element {
 
   function validateInputs(): boolean {    
     setButtonPressed(true);
-    return emailValid && passwordValid;
+    return emailValid && passwordValid && usernameValid && toggleCheckBox;
   }
 
   function signinPressHandler(): void {
