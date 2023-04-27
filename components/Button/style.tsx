@@ -8,17 +8,12 @@ export const styles = StyleSheet.create({
         height : 55,
         backgroundColor : Colors.primary,
         alignItems :'center',
+        justifyContent : 'center',
         marginHorizontal : 10,
         marginTop : 20,
-        paddingVertical : 15,
         elevation : 4
     },
     pressed: {
         opacity: 0.7,
-    },
-    buttonText: {
-        textAlign: 'center',
-        color: 'white',
-        fontSize: 15,
     }
 });

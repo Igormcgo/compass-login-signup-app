@@ -13,7 +13,7 @@ type InputProps = {
 }
 
 function Input({ placeholder, myImage, isValid, invalidMessage, onChangeText, isPressed}: InputProps): JSX.Element {
-    const [invalid, setInvalid] = useState(false);
+    const [invalid, setInvalid] = useState<boolean>(false);
     
     useEffect (() => {
         if(isPressed){

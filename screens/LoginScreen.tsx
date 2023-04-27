@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { View, Text, StyleSheet, ImageSourcePropType } from 'react-native';
+import { View, Text, StyleSheet, ImageSourcePropType, ActivityIndicator } from 'react-native';
 import { Colors } from '../constants/styles';
 import  Input  from '../components/Input';
 import Button from '../components/Button';
@@ -13,28 +13,33 @@ const mailIcon:ImageSourcePropType = require('../assets/icons/mail.png');
 const lockIcon:ImageSourcePropType = require('../assets/icons/lock.png');
 
 function LoginScreen ({navigation} : LoginScreenProps) : JSX.Element {
-  //type
-  const [emailValid, setEmailValid] = useState(false);
-  const [passwordValid, setPasswordValid] = useState(false);
-  const [buttonPressed, setButtonPressed] = useState(false);
+  const [emailValid, setEmailValid] = useState<boolean>(false);
+  const [passwordValid, setPasswordValid] = useState<boolean>(false);
+  const [buttonPressed, setButtonPressed] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      navigation.navigate('Home');
+    }, 3000);
+  }
+  
 
   function handleEmailChange(text: string): void {
-    if (buttonPressed) {
-      if (text.trim() === '') {
-        setEmailValid(false);
-      } else {
-        setEmailValid(true);
-      }
+    if (text.trim() === '') {
+      setEmailValid(false);
+    } else {
+      setEmailValid(true);
     }
   }
 
   function handlePasswordChange(text: string): void {
-    if (buttonPressed){  
-      if (text.trim() === '') {
-        setPasswordValid(false);
-      } else {
-        setPasswordValid(true);
-      }
+    if (text.trim() === '') {
+      setPasswordValid(false);
+    } else {
+      setPasswordValid(true);
     }
   }
 
@@ -54,8 +59,8 @@ function LoginScreen ({navigation} : LoginScreenProps) : JSX.Element {
       <Input isPressed={buttonPressed} onChangeText={handlePasswordChange} isValid={passwordValid} invalidMessage='Please enter a valid password' myImage={lockIcon} placeholder='Your password'/>
       <Button onPress={() => {
               if (validateInputs()) {
-                navigation.navigate('Home');}}}
-      >LOGIN</Button>
+                handleClick()}}}
+      >{isLoading ? <ActivityIndicator size={'large'} color='white'/> : <Text style={styles.buttonText}>LOGIN</Text>}</Button>
       <Footer link='Sign Up' onPress={signupPressHandler}>Don't have an account?</Footer>
     </View>
   );
@@ -74,5 +79,10 @@ const styles = StyleSheet.create({
     fontWeight : 'bold', 
     marginTop : 170,
     marginBottom: 110
+  },
+  buttonText : {
+    textAlign : 'center',
+    color : 'white',
+    alignSelf : 'center',
   }
 });
