@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
       borderRadius: 30,
       marginHorizontal: 10,
       marginVertical: 10,
-      paddingHorizontal: 10,
+      paddingHorizontal: 15,
       width : 375,
       height : 55
     },

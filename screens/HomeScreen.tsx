@@ -18,7 +18,7 @@ function HomeScreen () :JSX.Element {
     return(
         <SafeAreaView style={styles.container}>
             <Text style={styles.text}>HOME</Text>
-            <ScrollView >
+            <ScrollView>
                 {rectangles.map( (item) => <Rectangle key={item} />)}
             </ScrollView>
         </SafeAreaView>
