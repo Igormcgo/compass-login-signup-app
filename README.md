@@ -20,6 +20,18 @@
   <li>Home Screen: displays a list of features for logged-in users. (Feature to be improved in the future).</li>
 </ul>
 
+<h2>Screens Images</h2>
+
+<div 
+    style="display: flex;
+    justify-content: space-between;
+    align-items: center;"
+ >
+  <img src='./assets/project-images/LoginScreen.png' alt="LoginScreen" style="width: 300px; height: auto;"/>
+  <img src='./assets/project-images/SignupScreen.png' alt="SignupScreen" style="width: 300px; height: auto;"/>
+  <img src='./assets/project-images/HomeScreen.png' alt="HomeScreen" style="width: 300px; height: auto;"/>
+</div>
+
 <h2>Developer</h2>
 
 <p>Igor Machado Cruz Guimaraes Oliveira</p>

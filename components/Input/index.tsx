@@ -26,7 +26,7 @@ function Input({
     if (isPressed) {
       setInvalid(!isValid);
     }
-  }, [isPressed, onChangeText]);
+  }, [isPressed]);
 
   return (
     <View>
