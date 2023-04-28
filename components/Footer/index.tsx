@@ -8,14 +8,9 @@ type FooterProps = {
     onPress : () => void;
 }
 
-interface State {
-    isKeyboardVisible: boolean;
-}
 
 function Footer ({children, link, onPress} : FooterProps) : JSX.Element {
-    const [state, setState] = useState<State>({
-        isKeyboardVisible: false,
-    });
+    const [isKeyboardVisible, setIsKeyboardVisible] = useState<boolean>(false);
 
     useEffect(() => {
         const keyboardDidShowListener = Keyboard.addListener(
@@ -34,16 +29,16 @@ function Footer ({children, link, onPress} : FooterProps) : JSX.Element {
     }, []);
 
     const handleKeyboardDidShow = () => {
-        setState({ isKeyboardVisible: true });
+        setIsKeyboardVisible(true);
     };
     
     const handleKeyboardDidHide = () => {
-        setState({ isKeyboardVisible: false });
+        setIsKeyboardVisible(false);
     };
     
     return(
         <View style={styles.container}>
-            {!state.isKeyboardVisible && <View style={styles.textContainer}>
+            {!isKeyboardVisible && <View style={styles.textContainer}>
                 <Text style={styles.text}>{children}</Text>
                 <Pressable style={({ pressed }) =>  pressed && styles.pressed}
                            onPress={onPress}>
