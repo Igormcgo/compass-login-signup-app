@@ -8,7 +8,7 @@ type InputProps = {
     myImage : ImageSourcePropType;
     isValid : boolean;
     invalidMessage : string;
-    onChangeText : any;
+    onChangeText : (text :string) => void;
     isPressed : boolean;
 }
 
